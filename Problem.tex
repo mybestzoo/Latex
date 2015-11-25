@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsfonts}
+\usepackage{amsmath}
+\usepackage{color,soul}
+\usepackage[russian,english]{babel}
+
+\begin{document}
+В основной теореме оптимальные методы задаются формулой 
+\begin{equation}
+\label{method}
+\hat{m_a(g)}(\xi'')=(2\pi)^{-k/2}a(\xi'')\hat{g_\pi}(\xi''),\quad \xi''\in\pi^\perp.
+\end{equation}
+Здесь $g\in L_2(TG_{k,d})$, $TG_{k,d}=\{(\pi,x''):\pi\in G_{k,d}, x''\in\pi^\perp\}$, $G_{k,d}$ - многообразие Грассмана всех k-мерных подространств в $\mathbb R^d$, мера которого конечна $|G_{k,d}|<\infty$. Функция $\hat{g_\pi}(\xi'')$ является преобразованием Фурье функции $g(\pi,x)$, взятом по второй переменной. Проблема в том, что равенство \eqref{method}, возможно, не определяет функцию $m_a(g)$ как элемент $L_2(\mathbb R^d)$. Можно показать, что правая часть равенства принадлежит $L_2(\pi^\perp)$ для почти всех $\pi\in G_{k,d}$:
+
+\begin{itemize}
+    \item Вместо функции, заданной на $TG_{k,d}$ можно рассмотреть функцию $g:G_{k,d}\times\mathbb R^{d-k}\longrightarrow\mathbb R$, тогда
+		$$g\in L_2(G_{k,d}\times \mathbb R^{d-k})\Rightarrow g(\pi,\cdot)\in L_2(\mathbb R^{d-k})$$ для почти всех $\pi\in G_{k,d}$. Это утверждение Теоремы Фубини.
+    \item $g(\pi,\cdot)\in L_2(\mathbb R^{d-k})$ для п.в. $\pi\in G_{k,d}$ $\Rightarrow \hat {g_\pi}\in L_2(\mathbb R^{d-k})$ для п.в. $\pi\in G_{k,d}$ (где $g_\pi(x)=g(\pi,x)$).
+\end{itemize}
+
+Однако из того, что $\hat {g_\pi}\in L_2(\pi^\perp)$ для п.в. $\pi\in G_{k,d}$, вообще говоря, не следует, что $\hat {g_\pi}\in L_2(TG_{k,d})$
+
+
+\end{document}
