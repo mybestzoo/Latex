@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage[hscale=0.8,vscale=0.8]{geometry}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{conseq}{Consequence}
+
+\title{\LARGE \bf RESEARCH STATEMENT}
+\author{Tigran Bagramyan (t.bagramyan@me.com)}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+	My research lies in the field of functional analysis concerning different problems of approximation, optimization and inverse problems. In recent studies I develop the framework of optimal recovery theory and its applications to the problems of classical analysis, integral geometry and statistical estimation. This approach allows to find the features of objects from the noisy measurements by the methods, which are optimal on certain classes of objects. It finds its explicit applications in signal processing, image reconstruction, recovery of solution s of differential equations, financial mathematics (derivatives pricing).
+	
+	\subsection*{Carried out research}
+	%\hspace{\parindent}
+	
+	In many applied and theoretical problems one needs to recover a function (functional or operator) from the information, which can be incomplete or given with an error. Such problems are investigated in optimal recovery theory - a modern branch of approximation theory, which has it roots in works of A.N. Kolmogorov (notion of Kolmogorov widths) and then first appear in PhD thesis of S.A. Smolyak and developed lately by C.A. Michelli, T.J. Rivlin, Traub, Vozhnyakovski, K.Yu. Osipenko, M.I. Stessin, G.G. Magaril- Il'yaev. In general the problem is to find the best approximation of a value of linear operator $U:X\rightarrow Z$ on a given set $X$ from values of another linear operator $I:X\rightarrow Y$ (called information) given with an error in some metric. The problem can be demonstrated on the following diagram:
+	
+	\includegraphics[scale=0.8]{diagram.jpg}
+	
+Here $X$ is a linear space	and $Y$ and $Z$ are normed linear spaces. $W$ is a subset of $X$, $U$ is a linear operator from $X$ into $Z$ (the {\it feature} operator) and $I$ is a linear operator from $X$ into $Y$ (the {\it information} operator). An arbitrary mapping $m:Y\rightarrow Z$ is called a {\it method of recovery}. Suppose, that instead of the element $Ix$ we are given its approximation $y\in Y$ with an error $\delta$, i.e. $\|Ix-y\|\le\delta$. Each method of recovery $m$ produces an {\it error}
+
+	$$
+	e(\delta,m) =  \sup\{\|Ux-my\|: x\in W, \|Ix-y\|\le\delta}
+	$$
+	
+and 
+	$$
+	E(\delta) = \inf_{m} e(\delta,m)
+	$$
+is called {\it the error of the optimal recovery}.
+The method of recovery $m$ is optimal if the error of the optimal recovery $E(\delta)$ is achieved by the error $e(\delta,m)$ of $m$, i.e. $e(\delta,m)=E(\delta)$.
+Particular cases usually use information in a form of a linear functional or an operator that maps function to the set of it's values in a number of nodes, it's Fourier coefficients or the function itself. This covers a large set of numerical methods problems, such as quadrature formulas, optimal interpolation and approximation, recovery of the solutions of differential equations, signal reconstruction, optimal state estimation and so on. The solutions for some of this problems and general results for certain cases when $I$ is a functional, or $X$, $Y$, $Z$ are Hilbert spaces and $\delta=0$ can be found in MR. The main result can be informally formulated as the statement that among all the optimal methods there exist a linear optimal method. The new approach based on the general results from the extremal problems theory and Lagrange principle was introduced in works of O,M and allowed to find solution in a series of complex problems with linear operators in non Hilbert spaces and $\delta>0$. Though it was shown that in this generality the linear optimal method may not exist, the obtained results are important examples of the types of problems, when this principle remains true. In my research I developed this approach and implemented it to the problem of reconstruction of functions from their Radon transform (in a broad sense) - operator, that maps function on a manifold to the set of it's integrals over some family of submanifolds (in classical case --- integration along all the hyperplanes in space). Operators of this type are typically considered in integral geometry and computerized tomography, which investigates numerical methods of function recovery from it's linear or plane integrals. When the Radon transform of a function is known there exist inverse formulas, that perform a unique recovery. My goal was to deal with uncertain information, when the only thing that is known a priori is the error of measurements. In optimal recovery theory some similar problems were considered previously by B.F. Logan, L.A. Shepp (their work considered function in a unit circle on a plane and it's Radon transform measured in a finite number of directions) and by A.J. Degraw (who considered in his PhD thesis the problem of optimal recovery of harmonic function in a unit ball on a plane from it's Radon transform and radial integration operator, which measured with an error). My first results published in VMJ considered the Hardy space of harmonic functions in a unit ball of $\mathbb R^d$, where the information was the radial integration operator measured with an error in $L_2$ and $L_\infty$ norms. I proceeded with a more complex case of the Radon transform acting on the same class of functions and inaccurately measured in $L_2$ norm. The solution to this problem was published in MATHNOTES and also included a new inequality for the Radon transform, which was obtained as a consequence of the considered optimal recovery problem solution. The latest and most general result in this area (submitted to {\it Inverse Problems}) considers the generalization of the Radon transform -- the so-called k-plane transform, which maps functions to their integrals along k-dimensional planes in $\mathbb R^d$. The class of functions here is also broader (and better suits for purposes of applications in tomography), than the class of harmonic functions from Hardy space. It consists on functions in $L_2(\mathbb R^d)$ which have a bounded $\alpha-$th degree of the Laplace operator. This work consists of new inversion methods of optimal recovery of functions from their noisy k-plane transform as well as corresponding inequalities for the k-plane transform and the Laplace operator. Particular cases include the results for the classical Radon and X-ray transforms.     
+	
+Among other applications of optimal recovery theory, that attracted my interest was the classical analysis problem of inequalities for derivatives. In recent works of K.Yu. Osipenko and G.G. Magaril-Yl'yaev authors obtained some inequalities for derivatives and showed, that the problem of finding the exact constants in such inequalities can be formulated and efficiently solved as the corresponding optimal recovery problem. I considered an optimal recovery problem for the k-th derivative of the function on an interval from the information on the function itself, given in the mean square metric. As a consequence of the solution I obtained one Kolmogorov type inequality for derivatives on an interval. An important corollary demonstrated that the constant in this inequality can be reduced by considering particular subsets of the function
+class. In particular cases I presented explicit expressions for this subsets and corresponding constants in my publication in JAT.
+
+\subsection*{Future research}
+
+In the previous discussion of optimal recovery from inaccurate information the point of view was that the inaccurate data $y\in Y$ had the form $y=Ix+e$, where $Ix$ is the exact data corresponding to some $x\in W$ and $e$ is in the $\delta-$ball about the origin in $Y$. From this point of view every $e$ in this $\delta-$ball is equally likely. If we consider the possibility that $e$ is a random variable we come to the definition of the optimal recovery problem with {\it stochastic information}. Now the error of the method $m$ is the worst expected value of the discrepancy,i.e.
+	$$
+	\sup_{x\in W} E (\|Ux-my\|),
+	$$
+and the objective is to minimize this error over all $m:Y\rightarrow Z$.
+This problem is mentioned in MR, but the known results use a significant departure from our previous approach as they assume that only linear methods $m$ are considered. However, in paper [DONOHO] D.L. Donoho demonstrated, that the problem of {\it minimax statistical estimation} (which assumes $e$ to be a zero-mean Gaussian noise) and the problem of optimal recovery have a number of underlying similarities. For a particular case we can approach the problem in two different ways: one time assuming the noise is random Gaussian, and the other time assuming the noise is chosen by antagonist, subject to a quadratic constraint. In some cases both ways of stating the problem have been solved, and what happens is that while the two solutions are different in detail, they belong to the same family - that is the same family of splines, of kernel estimators or of regularized least square estimates - only the {\it tuning constants} are chosen differently. The similarity discovered by D.L. Donoho has a fundamental character, which gives a rise to opportunity to apply the recent developments in optimal recovery theory (based on the Lagrange principle from general extremal problems) to the problems of optimal recovery with stochastic information. This results will be applicable to the particular problems of {\it minimax statistical estimation, nonparametric regression, density estimation} and others.
+
+Thus we briefly discussed the research area motivated by assumption that the information in optimal recovery problem has a stochastic nature. However this is not the only possible way to introduce stochastic principles in optimal recovery. So far we have always assumed that any element $x\in W$ had an equally likely chance to be chosen when estimating $Ux$. This led us to the worst case criterion, which required to take the supremum of $\|Ux-my\|$ over $x\in W$. By allowing some randomness in the choice of $x$ we define a new problem, which is called the {\it stochastic optimal recovery}. This is accomplished by using a probability measure on $X$. This problem is formulated in [MR] in a restricted to exact information case. Let $X=W$ be a Hilbert space and $\mu$ a Borel measure defined on $X$. Suppose $I:X\rightarrow\mathbb R^d$ is a continuous linear operator and $U$ is a continuous linear operator from $X$ into $Z$m which is a Hilbert space. We wish to estimate $Ux$, $x\in X$, by a linear algorithm $m$ and find such an algorithm with least mean square error
+
+	$$
+	e(m) = \int_{X}\|Ux-m(Ix)\|^2\mu(dx).
+	$$
+Here the significant constraints are the assumptions that the information is exact, that information operator has a finite rank and that we restrict possible methods to those which are linear. Any of these constraints represent an open problem to investigate the assumptions under which they can be avoided.	
+	
+
+
+
+
+
+\subsection{Optimal recovery of a harmonic function from the inaccurate information on it’s Radon transform}
+{\it Published in Mathematical Notes, vol.98, No2, 2015, Moscow.}
+
+Consider the set of all hyperplanes in $\mathbb R^d$, where each hyperplane is given by equation $x\theta=s$, where $\theta\in \mathbb{S}^{d-1},\quad s\in\mathbb R$.
+Let us consider the Radon transform
+	$$Rf(\theta,s)=R_\theta f(s)=\int_{x\theta=s}f(x)dx.$$
+The function $Rf$ is defined on the unit cylinder $Z=\mathbb S^{d-1}\times\mathbb R$ and the function $R_\theta f$ on $\mathbb R$. The inner product in the space $L_2(\mathbb R)$ will be denoted by 
+$(u,v)$, also Hilbert space $L_2(Z)$ is given by the scalar product
+	$$(g,h)_{L_2(Z)}=\int_{\mathbb S^{d-1}}\int_{\mathbb R}g(\theta,s)\overline h(\theta,s)dsd\theta.$$
+
+Consider the Hardy space $h_2$ of harmonic functions in the ball $\mathbb{B}^d=\{x\in \mathbb{R}^d:|x|<1\}$, $d\ge2$, with finite norm
+	$$\|f\|_{h_2}=\sup_{0\le r<1}\left(\int_{\mathbb S^{d-1}}|f(r\phi)|^2\right)^{1/2}d\phi,$$
+	$$\mathbb{S}^{d-1}=\{x\in \mathbb{R}^d\colon |x|=1\}.$$
+Let $Bh_2$ denote the class of functions $f\in h_2$, such that $\|f\|_{h_2}\le1$.
+Let us extend the functions $f\in Bh_2$ to $\mathbb R^d$ by setting $f(x)=0,$ $|x|\ge1$.
+	
+Suppose, that instead of the function $Rf$ we are given its approximation $g\in L_2(Z)$ with an error $\delta$.
+
+	%\begin{equation}
+	%\label{delta}
+	$$||Rf-g||_{L_2(Z)}\le\delta, \quad\delta>0.$$
+	%\end{equation}
+The problem is to find the optimal recovery method for the function $f$, provided that $g$ is known. By recovery method we mean an arbitrary mapping $m:L_2(Z)\rightarrow L_2(\mathbb B^d)$, while the error of the method is defined by the quantity
+
+ 	$$e(\delta,m)=\sup_{
+	\begin{smallmatrix}
+f\in Bh_2,\quad g\in L_2(Z)\\ 
+\|Rf-g\|_{L_2(Z)}\le\delta
+\end{smallmatrix}}
+||f-m(g)||_{L_2(\mathbb B^d)}.$$
+Next, define the error of the optimal recovery by
+
+	$$E(\delta)=\inf_{m:L_2(Z)\rightarrow L_2(\mathbb B^d)}e(\delta,m).$$
+The method of recovery $m$ is optimal if the error of the optimal recovery $E(\delta)$ is achieved by the error $e(\delta,m)$ of $m$, i.e. $e(\delta,m)=E(\delta)$.
+
+To state the theorem we need spherical harmonics, which are the restrictions of homogeneous harmonic polynomials to the sphere $S^{d-1}$. Spherical harmonics of different degrees are orthogonal in $L_2(S^{d-1})$. There exist $N(l)$ of linearly independent spherical harmonics of degree $l$, where
+$$N(l)=\frac{(2l+d-2)(d+l-3)!}{l!(d-2)!}, \quad{ }l\ge1,$$
+$$N(0)=1.$$ Denote by $Y_k^l(\theta),$ $k=1,\dots,N(l)$ the elements of the orthonormal basis in the space of spherical harmonics of degree $l$. Consider the normalized Gegenbauer polynomials $C_l^\lambda$, $\lambda>-\frac{1}{2},$ of degree $l$, which are orthogonal on the closed interval $[-1,1]$ with weight function $(1-t^2)^{\lambda-1/2}$ and $C_l^\lambda(1)=1.$
+
+Consider the set of points $\{(x_l,y_l)|l=0,1,\dots\}$ defined by the formulas 
+	$$x_l=\frac{\Gamma^2(\frac{d+1}{2})\Gamma(d+l+\frac{1}{2})}{\pi^{d-1}\Gamma(d)\Gamma(l+\frac{1}{2})}, \quad y_l=\frac{x_l}{2l+d}.$$
+Let $x_s<\delta^{-2}\le x_{s+1},$ $s\ge 0$. Set
+	\begin{equation}
+	\label{lambda}
+	\widehat\lambda_1=\frac{y_{s+1}-y_{s}}{x_{s+1}-x_s},\quad \widehat\lambda_2=\frac{y_sx_{s+1}-y_{s+1}x_s}{x_{s+1}-x_s}. 
+	\end{equation}
+In the case $\delta^{-2}\le x_{0}$, we set
+	$$\widehat\lambda_1=\frac{y_0}{x_0},\quad \widehat\lambda_2=0.$$
+The following theorem provides the solution to our problem of the optimal recovery of functions in $Bh_2$ from their inaccurately given Radon transform.
+
+
+%ТЕОРЕМА ГЛАВНАЯ
+\begin{theorem}
+\label{main1}
+The error of the optimal recovery is given by
+	$$E(\delta)=\sqrt{\widehat\lambda_1+\widehat\lambda_2\delta^2},$$
+and the following methods are optimal:
+	\begin{equation}
+	\label{method}
+	m_a(g)(x)=\sum_{l=0}^\infty\sum_{k=1}^{N(l)}a_{kl}(\widehat g_{kl},q_l)|x|^lY_k^l\left(\frac{x}{|x|}\right),
+	\end{equation}
+where 
+	$$g_{kl}(s)=\int_{\mathbb S^{d-1}}g(\theta,s)Y_k^l(\theta)d\theta,$$
+	$$q_l(\sigma)=x_l(2\pi)^{(d-1)/2}i^{-l}\sigma^{-d/2}J_{l+d/2}(\sigma),$$
+	$J_l$ - the Bessel function of the first kind of $l$th order,
+	\begin{equation}
+	\label{a}
+	a_{kl}=\frac{\widehat\lambda_2}{\widehat\lambda_1x_l+\widehat\lambda_2}+\epsilon_{kl}\frac{\sqrt{\widehat\lambda_1\widehat\lambda_2(2l+d)}}{\widehat\lambda_1x_l+\widehat\lambda_2}\sqrt{\widehat\lambda_1x_l+\widehat\lambda_2-\frac{x_l}{2l+d}},
+\end{equation}
+and the $\epsilon_{kl}$ are arbitrary numbers from $[-1;1]$.
+
+\end{theorem}
+
+The collection of $a_{kl}$ is the filter defining the values of the harmonics in the recovery of the function $f$. Depending on the value of $\delta$, the coefficients of some harmonics can be set equal to $0$, while those some other to $1$, i.e., some harmonics need not be taken into account, while others do not require filtering.
+For example, for $\delta\ge1/\sqrt{x_0}$, the optimal recovery error becomes $\sqrt{1/d}$, and the optimal method is $m_0(g)(x)=0$, where all the coefficients $a_{kl}$ are zero. The following statement describes the relation between the amount of useful information and its approximation error.
+
+\begin{conseq}
+Under the assumptions of \ref{main1}, the methods
+
+	$$m_a(g)(x)=\sum_{l<l'}\sum_{k=1}^{N(l)}(\widehat g_{kl},q_l)|x|^lY_k^l\left(\frac{x}{|x|}\right)+\sum_{l'<l<l''}\sum_{k=1}^{N(l)}a_{kl}(\widehat g_{kl},q_l)|x|^lY_k^l\left(\frac{x}{|x|}\right),$$
+where 
+	$$l'=\max\{ l | y_l\le\widehat\lambda_2\},\quad l''=\min\left\{l | l\ge \frac{1-\widehat\lambda_1d}{2\widehat\lambda_1}\right\},$$
+are optimal.
+\end{conseq}
+
+It follows that, beginning with some degree, all harmonics of greater degree do not affect the optimal recovery error and they can be set equal to zero, while some number of first harmonics need not be filtered. As $\delta$ increases, the number of nonzero coefficients of the harmonics decreases until they all vanish for $\delta\ge1/\sqrt{x_0}$. As $\delta$ decreases, the number of harmonics not needing filtering increases and the optimal method becomes the exact recovery formula
+
+$$m(g)(x)=\sum_{l=0}^\infty\sum_{k=1}^{N(l)}(\widehat g_{kl},q_l)|x|^lY_k^l\left(\frac{x}{|x|}\right).$$ 
+
+\subsection{The optimal recovery of a function from an inaccurate information on its k-plane transform}
+
+{\it Submitted to Inverse Problems}
+
+We consider the optimal recovery of the $\beta$-th degree of the Laplacian value on a function from the information on its k-plane transform, measured with an error. Presented are the error of the optimal recovery and the set of optimal methods on classes with the bounded $\alpha$-th degree of the Laplacian, where $0\le\beta<\alpha$. As a consequence, we give one inequality for the norms of the degree of the Laplace operator and the k-plane transform. Particular cases include new inversion methods and inequalities for the classical Radon and X-ray transforms.
+
+Consider $G_{k,d}$ the Grassmanian manifold of (non-oriented) k-dimensional subspaces in $\mathbb R^d$.
+Given a presentation of a point $x\in\mathbb R^d$ in a form $x=x'+x''$, $x'\in\pi$, $x''\in\pi^\perp$, the k-plane transform is defined by the integral along the plane parallel to $\pi$ through the point $x''$
+	$$Pf(\pi,x'')=P_\pi f(x'')=\int_{\pi}f(x'+x'')dx',\quad x''\in\pi^\perp.$$
+Its domain is the manifold of all $k$-planes in $\mathbb R^d$ 
+$$TG_{k,d}=\{(\pi,x''):\pi\in G_{k,d}, x''\in\pi^\perp\}.$$
+
+We will work with the class of functions which is constructed through the degree of the Laplace operator, defined for $\alpha\ge 0$ by the formula 
+$$\widehat{(-\Delta)^{\alpha/2}f}(\xi)=|\xi|^\alpha \widehat f(\xi)$$ on the set of functions $f\in L_2(\mathbb R^d)$ that satisfy the condition $|\xi|^\alpha\widehat f(\xi)\in L_2(\mathbb R^d)$.
+We denote the class 
+$$ W=\{f\in L_2(\mathbb R^d) :
+\|(-\Delta)^{\alpha/2}f\|_{L_2(\mathbb R^d)}\leqslant  1;\quad Pf\in L_2(TG_{k,d}) \}.  $$
+Suppose that for a function $Pf$ we know an approximation $g\in L_2(TG_{k,d})$ such that
+	$$\|Pf-g\|_{L_2(TG_{k,d})}\le\delta, \quad\delta>0.$$
+On this information we want to recover function $(-\Delta)^{\beta/2}f$ as an element of $ L_2(\mathbb R^d)$, where $0\le\beta<\alpha$. An arbitrary map $m:L_2(TG_{k,d})\rightarrow L_2(\mathbb R^d)$ is called a method $m$ of recovery. Define the error $e(\delta,m)$ of the method by
+\[
+  e(\delta,m)=\sup_{
+  \begin{smallmatrix}
+f\in W, g\in L_2(TG_{k,d})\\ 
+\|Pf-g\|_{L_2(TG_{k,d})}\leqslant \delta
+\end{smallmatrix}} ||(-\Delta)^{\beta/2}f-m(g)||_{L_2(\mathbb R^d)}.
+\] 
+Next, define the error of the optimal recovery by
+\begin{equation}
+\label{opter}
+E(\delta)=\inf_{m:L_2(TG_{k,d})\rightarrow L_2(\mathbb R^d)}e(\delta,m).
+\end{equation}
+The method of recovery $m$ is optimal if the error of the optimal recovery $E(\delta)$ is achieved by the error $e(\delta,m)$ of $m$, i.e. $e(\delta,m)=E(\delta)$. Our goal is to present the explicit construction for the optimal methods and the error of the optimal recovery.
+
+Define functions $t(\sigma)$, $y(\sigma)$ and constants $\widehat\lambda_1$, $\widehat\lambda_2$ by formulas
+  \begin{equation}
+  \label{xy}
+  t(\sigma)=\frac{\sigma^{2\alpha+k}}{(2\pi)^{k}\gamma_{d-k,d}},\quad
+  y(\sigma)=\frac{\sigma^{2\beta+k}}{(2\pi)^{k}\gamma_{d-k,d}},\quad \sigma\in\mathbb R;
+  \end{equation}
+  \begin{equation}
+    \label{lambda}
+    \widehat\lambda_1=((2\pi)^k\gamma_{d-k,d})^{\frac{2(\beta-\alpha)}{2\alpha+k}}\frac{2\beta+k}{2\alpha+k}\delta^\frac{4(\alpha-\beta)}{2\alpha+k},\quad \widehat\lambda_2=((2\pi)^k\gamma_{d-k,d})^{\frac{2(\beta-\alpha)}{2\alpha+k}}\frac{2(\alpha-\beta)}{2\alpha+k}\delta^\frac{-4\beta-2k}{2\alpha+k}. 
+  \end{equation}
+
+%THEOREM
+\begin{theorem}
+\label{theorem}
+The error of the optimal recovery is given by
+  \[
+E(\delta)=\sqrt{\widehat\lambda_1+\widehat\lambda_2\delta^2}=((2\pi)^k\gamma_{d-k,d})^{\frac{\beta-\alpha}{2\alpha+k}}\delta^{\frac{2(\alpha-\beta)}{2\alpha+k}}
+\]
+and the following methods are optimal
+ \begin{equation}
+\label{method}
+  \widehat{m_a(g)}(\xi'')=(2\pi)^{-k/2}a(\xi'')\widehat{g_\pi }(\xi''),\quad \xi''\in\pi^\perp,
+\end{equation}
+  \begin{equation}
+  \label{a}
+  a(\xi'')=\frac{\widehat\lambda_2|\xi''|^\beta}{\widehat\lambda_1t(|\xi''|)+\widehat\lambda_2}+\varepsilon(\xi'')\frac{\sqrt{\widehat\lambda_1\widehat\lambda_2}|\xi''|^\alpha}{\widehat\lambda_1t(|\xi''|)+\widehat\lambda_2}\sqrt{\widehat\lambda_1t(|\xi''|)+\widehat\lambda_2-y(|\xi''|)},
+  \end{equation}
+  $\varepsilon$ is an arbitrary function satisfying $\|\varepsilon\|_{L_\infty(\mathbb R^d)}\le 1$.
+\end{theorem}
+
+The design of the optimal methods actually adds a filter $a(\xi'')$ to the projection theorem and instead of the $k$-plane transform we deal with its Fourier image. As in previous section we make the consequence that shows that for sufficiently small  $|\xi''|$ information $\widehat{g_\pi}(\xi'')$ doesn't need to be filtered and, on the contrary, for large  $|\xi''|$ the information is useless, as it  has no effect on the error of the optimal recovery.
+
+%CONS1
+\begin{conseq}
+\label{cons}
+In the conditions of the Theorem \ref{theorem} the following methods are optimal $$
+\widehat{m_a(g)}(\xi'')=(2\pi)^{-k/2}a(\xi'')\widehat{g_\pi }(\xi''),\quad \xi''\in\pi^\perp,$$ where
+  \[
+a(\xi'')=
+  \begin{cases}
+    1& ,|\xi''|\le \tau_1,\\
+    \frac{\widehat\lambda_2|\xi''|^\beta}{\widehat\lambda_1t(|\xi''|)+\widehat\lambda_2}+\varepsilon(\xi'')\frac{\sqrt{\widehat\lambda_1\widehat\lambda_2}|\xi''|^\alpha}{\widehat\lambda_1t(|\xi''|)+\widehat\lambda_2}\sqrt{t(|\xi''|)\widehat\lambda_1+\widehat\lambda_2-y(|\xi''|)}& ,\tau_1 \le|\xi''|\le\tau_2,\\
+    0 &,|\xi''|\ge\tau_2,
+  \end{cases}
+\]
+$\varepsilon$ is an arbitrary function satisfying $\|\varepsilon\|_{L_\infty(\mathbb R^d)}\le 1$, $\tau_1=((2\pi)^k\widehat\lambda_2\gamma_{d-k,d})^\frac{1}{k+2\beta}$, $\tau_2=\widehat\lambda_1^{\frac{-1}{2(\alpha-\beta)}}.$
+\end{conseq}
+
+
+
+
+
+
+
+
+Technically speaking I can divide my current and prospective research in two areas: 
+\begin{enumerate}
+\item Development in optimal recovery theory and its application to imaging, inverse problems and classical analysis;
+\item Pattern recognition and algebraic-topology methods in imaging. 
+\end{enumerate}
+As I already gave a brief description of the first point, I just need to mention some particular problems that attract my attention: theoretical development of optimal recovery in general case of operator recovery from information on the values of another operator (not yet fully investigated); optimal methods of function recovery from its Radon transform measured in a  finite number of directions; recovery of function from its Radon transform in case of Elliptic (Riemann) and Hyperbolic (Lobachevsky) geometries; development of classical inequalities for derivatives based on the approach of optimal recovery.
+
+The second point is a new research area, that I recently started developing while giving lectures on a corresponding course in the university. The main object in this theory is the so called binary (digital) image, which is a collection of black pixels on the plane. On the one hand it's a subset of a plane (with its natural topology), on the other a CW-complex. The problem is to distinguish between different binary images and be able to recognize them. The main topological invariant of these images is their Euler characteristics, so the biggest part of all the algorithms aimed at an effective calculation of it. Most of the algorithms are based on the general concept of the index of pixel, which is the Euler characteristics of its border in the image. The most simple of them (but one of the most effective) uses the fact, that deletion of a pixel with index 1 (which means its border is connected) doesn't change the Euler characteristics. So the image can be transformed to a more simple view and this transformation won't change its topological invariants. As Euler characteristics in many cases is not enough to efficiently recognize the image, more complicated algorithms can be used to calculate number of holes and connected components, parametrize some parts of images as holes or "tails", calculate their square and thereby give a better conception on the shape of an image. Though the case of plane binary images is well developed, its 3D analogue is still remains uncovered. The main struggle here is that all the achievements on the plane cannot be automatically rescaled to the 3D case. With the same idea and used technic most of the concepts still should be transformed so they can suit the 3D environment. I consider it to be a very prospective and challenging research area to which I'm putting my effort.
+
+In the end I want to note that my research combines abstract mathematical theory and real applications that bring interest to such problems. Applying to postdoc position is an opportunity for me to go further in my career, as I consider it to be a job, where my research is on demand and I can be supported by other professionals, being in one team.\\
+
+\end{document}
