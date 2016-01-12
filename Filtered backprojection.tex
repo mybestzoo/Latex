@@ -23,7 +23,14 @@
 
 \begin{document}
 
-We will denote $\Lambda = (-\Delta)^{1/2}$.
+We will denote $\Lambda = (-\Delta)^{1/2}$. By $Proj_{\pi}:\mathbb R^d\rightarrow\pi$ we denote the orthogonal projection operator onto $\pi\in G_{k,d}$. The dual k-plane transform in defined by
+$$P^\#g(x) = \int_{G_{k,d}}g(\pi,Proj_{\pi^\perp(x)})d\pi,$$
+the duality relation has the form \cite{MA}
+
+\begin{equation}
+\label{duality}
+<f,P^\#g>_{L_2(\mathbb R^d)} = <Pf,g>_{L_2(TG_{k,d})}.
+\end{equation}
 
 \begin{lemma} (Theorem 3.97 \cite{MA})
 \label{isometry}
@@ -37,7 +44,7 @@ $$\|\Lambda^{k/2}Pf\|^2_{L_2(TG_{k,d})}=(2\pi)^k\gamma_{d-k,d}\|f\|^2_{L_2(\math
 =\int_{G_{k,d}}\int_{\pi^\perp}\left|\widehat{\Lambda^{k/2}Pf}(\pi,\xi'')\right|^2d\xi''d\pi=\int_{G_{k,d}}\int_{\pi^\perp}(2\pi)^k|\xi''|^k\left|\widehat{f}(\xi'')\right|^2d\xi''d\pi=\\
 =(2\pi)^k\gamma_{d-k,d}\int_{\mathbb R^d}\left|\widehat{f}(\xi)\right|^2d\xi =(2\pi)^k\gamma_{d-k,d}\|f\|^2_{L_2(\mathbb R^d)},$$
 \end{multline*}
-where we used Plancherel's theorem, slice-projection theorem \ref{projection} and equality \eqref{integral}.
+where we used Plancherel's theorem, slice-projection theorem \ref{projection} and duality equation \eqref{integral}.
 \end{proof}
 
 \begin{lemma}
@@ -55,9 +62,9 @@ $$\|P^\#\Lambda^kg\|_{L_2(\mathbb R^d)}\le\sqrt{(2\pi)^k\gamma_{d-k,d}}\|\Lambda
 where we used lemma \ref{isometry} and duality between $P$ and $P^\#$ \ref{duality}.
 \end{proof}
 
-Define method by 
+Define a method by 
 
-$$m_ag(x) = \frac{1}{(2\pi)^k\gamma_{d-k,d}}P^\#\Lambda^k[a g](x).$$
+$$m_ag(x) = \frac{1}{(2\pi)^k\gamma_{d-k,d}}P^\#\Lambda^k[a*g_\pi](x)$$
 
 Note, that $f(x)=\frac{1}{(2\pi)^k\gamma_{d-k,d}}P^\#\Lambda^kPf(x)$. It follows form the slice-projection theorem \ref{projection} by taking the inverse Fourier transform from both parts:
 
@@ -70,9 +77,9 @@ f(x) = (2\pi)^{-d/2}\int_{G_{k,d}}\int_{\pi^\perp}\frac{|\xi''|^k}{\gamma_{d-k,d
 
 By lemma \ref{lemma2} we have
 \begin{multline*}
-    \|\Lambda^\beta f-m_ag\|^2=\|\frac{1}{(2\pi)^k\gamma_{d-k,d}}P^\#\Lambda^k(P\Lambda^\beta f-ag)\|^2\le\frac{1}{(2\pi)^k\gamma_{d-k,d}}\|\Lambda^{k/2}(P\Lambda^\beta f-ag)\|^2=\\
-    =\frac{1}{(2\pi)^k\gamma_{d-k,d}}\int_{G_{k,d}}\int_{\pi^\perp}|\xi''|^k\left|\widehat{P\Lambda^\beta f_\pi}(\xi'')-a(\xi'')\widehat g_\pi(\xi'')\right|^2d\xi'' d\pi=\\
-    =\frac{1}{\gamma_{d-k,d}}\int_{G_{k,d}}\int_{\pi^\perp}|\xi''|^k\left||\xi''|^\beta\widehat{f}(\xi'')-(2\pi)^{-k/2}a(\xi'')\widehat g_\pi(\xi'')\right|^2d\xi'' d\pi.
+    \|\Lambda^\beta f-m_ag\|^2=\|\frac{1}{(2\pi)^k\gamma_{d-k,d}}P^\#\Lambda^k(P\Lambda^\beta f-a*g_\pi)\|^2\le\frac{1}{(2\pi)^k\gamma_{d-k,d}}\|\Lambda^{k/2}(P\Lambda^\beta f-a*g_\pi)\|^2=\\
+    =\frac{1}{(2\pi)^k\gamma_{d-k,d}}\int_{G_{k,d}}\int_{\pi^\perp}|\xi''|^k\left|\widehat{P\Lambda^\beta f_\pi}(\xi'')-\widehat a(\xi'')\widehat g_\pi(\xi'')\right|^2d\xi'' d\pi=\\
+    =\frac{1}{\gamma_{d-k,d}}\int_{G_{k,d}}\int_{\pi^\perp}|\xi''|^k\left||\xi''|^\beta\widehat{f}(\xi'')-(2\pi)^{-k/2}\widehat a(\xi'')\widehat g_\pi(\xi'')\right|^2d\xi'' d\pi.
 \end{multline*}
 
 
