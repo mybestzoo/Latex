@@ -26,7 +26,7 @@
 \title[The optimal recovery of a function from its inaccurate k-plane transform]{The optimal recovery of a function from an inaccurate information on its k-plane transform}
 \author{Tigran Bagramyan}
 %\address{\hl{ %Peoples' Friendship University of Russia, Moscow, Ordzhonikidze 3, 117198
-}}
+%}}
 \ead{t.bagramyan@me.com}
 \begin{abstract}
 
@@ -61,7 +61,7 @@ $$
 Given a presentation of a point $x\in\mathbb R^d$ in a form $x=x'+x''$, $x'\in\pi$, $x''\in\pi^\perp$, the k-plane transform is defined by the integral along the plane parallel to $\pi$ through the point $x''$
 	$$Pf(\pi,x'')=P_\pi f(x'')=\int_{\pi}f(x'+x'')dx',\quad x''\in\pi^\perp.$$
 Its domain is the manifold of all $k$-planes in $\mathbb R^d$ 
-$$TG_{k,d}=\{(\pi,x''):\pi\in G_{k,d}, x''\in\pi^\perp\}.$$
+$$\mathcal G_{k,d}=\{(\pi,x''):\pi\in G_{k,d}, x''\in\pi^\perp\}.$$
 
 \begin{figure}[h]
 \subfloat[A line parallel to $\pi$ goes through point $x''$ in plane $\pi^\perp$]{\includegraphics[width = .5\linewidth]{small_k=1.png}}
@@ -73,38 +73,77 @@ One important relation between the k-plane transform and the Fourier transform
 $$\quad \widehat f(\xi)=(2\pi)^{-d/2}\int_{\mathbb R^d}e^{-ix\xi}f(x)dx$$
 is  known as the projection-slice theorem. 
 
-\begin{theorem}
-\label{projection}
-If $f\in L_1(\mathbb R^d)$, then
-$$\widehat{(P_\pi f)}(\xi'')=(2\pi)^{k/2}\widehat f(\xi''),\quad \xi''\in\pi^\perp.$$
-\end{theorem}
-An introduction to that and related formulas can be found in \cite{K}, for more details see \cite{H}.
-%Hilbert space $L_2(Z)$ is produced by a scalar product	
-%	$(g,h)_{L_2(Z)}=\int_{\mathbb S^{d-1}}\int_{\mathbb R}g(\theta,s)\overline h(\theta,s)dsd\theta.$
+	\begin{theorem}
+		\label{projection}
+		If $f\in L_1(\mathbb R^d)$, then
+		$$\widehat{(P_\pi f)}(\xi'')=(2\pi)^{k/2}\widehat f(\xi''),\quad \xi''\in\pi^\perp.$$
+	\end{theorem}
+Hilbert space $L_2(\mathcal G_{k,d})$ is produced by a scalar product	
+	$$(g,h)_{L_2(\mathcal G_{k,d})}=\int_{G_{k,d}}\int_{\pi^\perp}g(\pi,x'')\overline{h(\pi,x'')}dx''d\pi.$$
+Next lemma (theorem 3.97 from \cite{MA}) presents the isometry property of the k-plane transform
+	\begin{lemma}
+		\label{isometry}
+			For $f\in L_2(\mathbb R^d)$,$\Lambda^{k/2}Pf\in L_2(\mathbb \mathfrak \mathcal G_{k,d})$ the following equality holds
+			$$\|\Lambda^{k/2}Pf\|^2_{L_2(\mathcal G_{k,d})}=(2\pi)^k\gamma_{d-k,d}\|f\|^2_{L_2(\mathbb R^d)}.$$
+	\end{lemma}
+	\begin{proof}
+	\begin{multline*}
+	\|\Lambda^{k/2}Pf\|^2_{L_2(\mathcal G_{k,d})}=\int_{G_{k,d}}\int_{\pi^\perp}\left|\Lambda^{k/2}Pf(\pi,x'')\right|^2dx''d\pi=\\
+	=\int_{G_{k,d}}\int_{\pi^\perp}\left|\widehat{\Lambda^{k/2}Pf}(\pi,\xi'')\right|^2d\xi''d\pi=\int_{G_{k,d}}\int_{\pi^\perp}(2\pi)^k|\xi''|^k\left|\widehat{f}(\xi'')\right|^2d\xi''d\pi=\\
+	=(2\pi)^k\gamma_{d-k,d}\int_{\mathbb R^d}\left|\widehat{f}(\xi)\right|^2d\xi =(2\pi)^k\gamma_{d-k,d}\|f\|^2_{L_2(\mathbb R^d)},$$
+	\end{multline*}
+	where we used Plancherel's theorem, theorem \ref{projection} and formula \eqref{integral}.
+	\end{proof}	
+	
+The dual k-plane transform is defined by
+	$$P^\#g(x) = \int_{G_{k,d}}g(\pi,E_{\pi^\perp}(x))d\pi,$$
+where $E_\pi:\mathbb R^d\rightarrow\pi$ is the orthogonal projection operator onto $\pi\in G_{k,d}$.
+Notice that $P^\#$ is the formal adjoint (\cite{MA}) operator of $P$ with duality relation
+	\begin{equation}
+	\label{duality}
+	<f,P^\#g>_{L_2(\mathbb R^d)} = <Pf,g>_{L_2(\mathcal G_{k,d})}.
+	\end{equation}
+From lemma \ref{isometry} and equation \eqref{duality} follows
+
+	\begin{lemma}
+	\label{lemma2}
+	If $P^\#\Lambda^kg\in L_2(\mathbb R^d)$ and $\Lambda^{k/2}g\in L_2(\mathcal G_{k,d})$, then
+	$$\|P^\#\Lambda^kg\|_{L_2(\mathbb R^d)}\le\sqrt{(2\pi)^k\gamma_{d-k,d}}\|\Lambda^{k/2}g\|_{L_2(\mathbb \mathcal G_{k,d})}.$$
+	\end{lemma}
+	
+	\begin{proof}
+		\begin{multline*}
+		\|P^\#\Lambda^kg\|_{L_2(\mathbb R^d)}^2=|<P^\#\Lambda^kg,P^\#\Lambda^kg>_{L_2(\mathbb R^d)}|=|<PP^\#\Lambda^kg,\Lambda^kg>_{L_2(\mathcal G_{k,d})}|=\\
+		=|<\Lambda^{k/2}PP^\#\Lambda^kg,\Lambda^{k/2}g>_{L_2(\mathcal G_{k,d})}|\le\|\Lambda^{k/2}PP^\#\Lambda^kg\|_{L_2(\mathcal G_{k,d})}\|\Lambda^{k/2}g\|_{L_2(\mathcal G_{k,d})}=\\
+		=\sqrt{(2\pi)^k\gamma_{d-k,d}}\|P^\#\Lambda^kg\|_{L_2(\mathbb R^d)}\|\Lambda^{k/2}g\|_{L_2(\mathbb \mathcal G_{k,d})}.
+		\end{multline*}
+	\end{proof}	   	
+
+An introduction to that and related formulas can be found in \cite{MA},\cite{H} and \cite{K}.
 
 We will work with the class of functions which is constructed through the degree of the Laplace operator, defined for $\alpha\ge 0$ by the formula 
-$$\widehat{(-\Delta)^{\alpha/2}f}(\xi)=|\xi|^\alpha \widehat f(\xi)$$ on the set of functions $f\in L_2(\mathbb R^d)$ that satisfy the condition $|\xi|^\alpha\widehat f(\xi)\in L_2(\mathbb R^d)$.
-We denote the class 
-$$ W=\{f\in L_2(\mathbb R^d) :
-\|(-\Delta)^{\alpha/2}f\|_{L_2(\mathbb R^d)}\leqslant  1;\quad Pf\in L_2(TG_{k,d}) \}.  $$
-Suppose that for a function $Pf$ we know an approximation $g\in L_2(TG_{k,d})$ such that
-	$$\|Pf-g\|_{L_2(TG_{k,d})}\le\delta, \quad\delta>0.$$
-On this information we want to recover function $(-\Delta)^{\beta/2}f$ as an element of $ L_2(\mathbb R^d)$, where $0\le\beta<\alpha$. An arbitrary map $m:L_2(TG_{k,d})\rightarrow L_2(\mathbb R^d)$ is called a method $m$ of recovery. Define the error $e(\delta,m)$ of the method by
+	$$\widehat{(-\Delta)^{\alpha/2}f}(\xi)=|\xi|^\alpha \widehat f(\xi)$$ on the set of functions $f\in L_2(\mathbb R^d)$ that satisfy the condition $|\xi|^\alpha\widehat f(\xi)\in L_2(\mathbb R^d)$.
+We will use a shorter notation $\Lambda^\alpha=(-\Delta)^{\alpha/2}$ and define the class 
+	$$ W=\{f\in L_2(\mathbb R^d) :
+	\|\Lambda^\alpha f\|_{L_2(\mathbb R^d)}\leqslant  1;\quad Pf\in L_2(\mathcal G_{k,d}) \}.  $$
+Suppose that for a function $Pf$ we know an approximation $g\in L_2(\mathcal G_{k,d})$ such that
+	$$\|Pf-g\|_{L_2(\mathcal G_{k,d})}\le\delta, \quad\delta>0.$$
+On this information we want to recover function $\Lambda^\beta f$ as an element of $ L_2(\mathbb R^d)$, where $0\le\beta<\alpha$. An arbitrary map $m:L_2(\mathcal G_{k,d})\rightarrow L_2(\mathbb R^d)$ is called a method $m$ of recovery. Define the error $e(\delta,m)$ of the method by
 \[
   e(\delta,m)=\sup_{
   \begin{smallmatrix}
-f\in W, g\in L_2(TG_{k,d})\\ 
-\|Pf-g\|_{L_2(TG_{k,d})}\leqslant \delta
+f\in W, g\in L_2(\mathcal G_{k,d})\\ 
+\|Pf-g\|_{L_2(\mathcal G_{k,d})}\leqslant \delta
 \end{smallmatrix}} ||(-\Delta)^{\beta/2}f-m(g)||_{L_2(\mathbb R^d)}.
 \] 
 Next, define the error of the optimal recovery by
 \begin{equation}
 \label{opter}
-E(\delta)=\inf_{m:L_2(TG_{k,d})\rightarrow L_2(\mathbb R^d)}e(\delta,m).
+E(\delta)=\inf_{m:L_2(\mathcal G_{k,d})\rightarrow L_2(\mathbb R^d)}e(\delta,m).
 \end{equation}
 The method of recovery $m$ is optimal if the error of the optimal recovery $E(\delta)$ is achieved by the error $e(\delta,m)$ of $m$, i.e. $e(\delta,m)=E(\delta)$. Our goal is to present the explicit construction for the optimal methods and the error of the optimal recovery.
 
-Define functions $t(\sigma)$, $y(\sigma)$ and constants $\widehat\lambda_1$, $\widehat\lambda_2$ by formulas
+When we consider $g(\pi,x'')$ as a function of the second argument we use notation $g_\pi(x'')=g(\pi,x'')$ and we denote its Fourier transform by $\widehat{g_\pi }(\xi'').$ Define functions $t(\sigma)$, $y(\sigma)$ and constants $\widehat\lambda_1$, $\widehat\lambda_2$ by formulas
   \begin{equation}
   \label{xy}
   t(\sigma)=\frac{\sigma^{2\alpha+k}}{(2\pi)^{k}\gamma_{d-k,d}},\quad
@@ -123,6 +162,9 @@ The error of the optimal recovery is given by
 E(\delta)=\sqrt{\widehat\lambda_1+\widehat\lambda_2\delta^2}=((2\pi)^k\gamma_{d-k,d})^{\frac{\beta-\alpha}{2\alpha+k}}\delta^{\frac{2(\alpha-\beta)}{2\alpha+k}}
 \]
 and the following methods are optimal
+	\begin{equation}
+	m_ag(x) = \frac{1}{(2\pi)^k\gamma_{d-k,d}}P^\#\Lambda^k[a*g_\pi](x)
+	\end{equation}	
  \begin{equation}
 \label{method}
   \widehat{m_a(g)}(\xi'')=(2\pi)^{-k/2}a(\xi'')\widehat{g_\pi }(\xi''),\quad \xi''\in\pi^\perp,
@@ -183,9 +225,9 @@ We use theorem \ref{projection} and relation \eqref{integral} to transform the f
 \[ \| (-\Delta)^{\alpha/2}f\|^2_{L_2(\mathbb R^d)}=\|\widehat{(-\Delta)^{\alpha/2}f}\|^2_{L_2(\mathbb R^d)}=\int_{\mathbb R^d}|\xi|^{2\alpha} |\widehat{f}(\xi)|^2d\xi,
 \]
 \begin{multline*}
-  \|Pf\|^2_{L_2(TG_{k,d})}=\int_{\mathbb G_{k,d}}\int_{\pi^\perp}|Pf(\pi,x'')|^2  dx''d\pi =
-  \int_{\mathbb G_{k,d}}\int_{\pi^\perp}|\widehat{(Pf_\pi)}(\eta)|^2  d\eta d\pi = \\
-  =(2\pi)^{k}\int_{\mathbb G_{k,d}}\int_{\pi^\perp}|\widehat
+  \|Pf\|^2_{L_2(TG_{k,d})}=\int_{G_{k,d}}\int_{\pi^\perp}|Pf(\pi,x'')|^2  dx''d\pi =
+  \int_{G_{k,d}}\int_{\pi^\perp}|\widehat{(Pf_\pi)}(\eta)|^2  d\eta d\pi = \\
+  =(2\pi)^{k}\int_{G_{k,d}}\int_{\pi^\perp}|\widehat
   f(\eta )|^2d\eta d\pi =
   (2\pi)^{k}\gamma_{d-k,d}\int_{\mathbb R^d}\frac{1}{|\xi|^k}|\widehat f(\xi )|^2d\xi.
 \end{multline*}
@@ -398,6 +440,7 @@ $$
 
 \section*{References}
 
-\bibliography{document}
+%\bibliographystyle{plain}
+\bibliography{ip2016}
 
 \end{document}
