@@ -1,24 +1,30 @@
 \documentclass{article}
 \usepackage{color}
-
-\title{Response to the referee's report 2}
-\date{}
+\usepackage{amssymb,amsfonts}
 
 \begin{document}
-\maketitle
 
-I'd like to thank referee for a careful attitude to the manuscript and present my feedback on the remarks in the review (numeration preserved):
+\begin{center}
+{\Large Response to the referee's report 2}
+\end{center}
+\vspace{5mm}
+
+I'd like to thank referee for a careful attitude to the manuscript and especially the last remark, which led to a major improvement in the paper. Hereby I present my feedback on the remarks in the review (numeration preserved):
 
 \begin{enumerate}
-\item Notation
-\item Corollary
+\item Notation $TG_{k,d}$ changed to $\mathcal G_{k,d}$;
+\item "Consequence 1"/"Consequence 2" changed to "Corollary 1"/"Corollary 2";
 \item One of the methods in local tomography theory is the so-called Lambda tomography. Instead of function $f$ itself it deals with the related function $Lf = \Lambda f+\mu\Lambda^{-1}f$, where $\Lambda = \sqrt{-\Delta}$. This has the advantege that the reconstruction is strictly local in the sense that computation of $Lf(x)$ requires only integrals over lines passing arbitrarily close to $x$. The details can be found in paper:
+A. Faridani, F. Keinert, F. Natterer, E.L. Ritman, K.T. Smith, \textit{Local and global tomography}, in \textit{Signal processing II}, Springer-Verlag, New York, 1990.
+Corresponding explanations added to the text.
 
-A. Faridani, F. Keinert, F. Natterer, E.L. Ritman, K.T. Smith, \textit{Local and global tomography}, in \textit{Signal processing II}, Springer-Verlag, New York, 1990 
-
-{\color{red}{Check the publication}}
-  
-\item Fourier transform
+\item To clarify the notations we specify that when applied to $g(\pi,x'')$ the Fourier transform and operator $\Lambda^k=(-\Delta)^{k/2}$ act on the second variable and we denote $g_\pi(x'')=g(\pi,x'')$. Thus $\widehat g_\pi(\xi'')$ is the Fourier transform of $g_\pi(x'')$. The idea of the optimal methods is to use the projection-slice theorem, apply filter $a(\xi'')$ to $\widehat g_\pi(\xi'')$ and then perform the inverse Fourier transform. However, as it was mentioned in the review, the direct application of the inverse Fourier transform is not correct, as $\widehat g_\pi(\xi'')$ is defined for $\xi''\in\pi^\perp$ and therefore doesn't specify a unique function on $\mathbb R^d$ (an exception is the Radon transform, for which $k=d-1$ and for every point in $\mathbb R^d$ there is a unique line $\pi^\perp$ passing through it). To avoid the direct application of the inverse Fourier transform we use the back-projection operator $P^\#$ to present the optimal methods in a form
+    $$
+	m_a(g)(x) = \frac{1}{(2\pi)^k\gamma_{d-k,d}}[P^\#\Lambda^ku](x),
+	$$
+where	
+	$$\widehat{u}(\xi'')=|\xi''|^\beta a(\xi'')\widehat{g_\pi }(\xi''),\quad \xi''\in\pi^\perp.$$
+The conditions on filter $a(\xi'')$ from theorem 2 guarantee that this method (series of methods) presents an optimal approximation of the considered set $W$ in $L_2$ norm.	Corresponding changes added to the statement and the proof of theorem 2. 
 \end{enumerate}
 
 \end{document}
